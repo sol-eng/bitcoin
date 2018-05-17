@@ -2,3 +2,5 @@
 .Rproj.user
 *.xlsx
 rsconnect
+packrat/lib*/
+packrat/src/

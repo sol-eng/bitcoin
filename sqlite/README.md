@@ -20,3 +20,5 @@ Finally, you can publish your work to RStudio Connect. You can use RStudio Conne
 * [R Markdown Report](http://colorado.rstudio.com/rsc/content/1129/report.html) <small>[[login]](http://colorado.rstudio.com/rsc/connect/#/apps/1129/access/1262)</small>
 * [Plumber API](http://colorado.rstudio.com/rsc/content/1131/__swagger__/) <small>[[login]](http://colorado.rstudio.com/rsc/connect/#/apps/1131/access)</small>
 * [Automated ETL](http://colorado.rstudio.com/rsc/content/1125/etl.nb.html) <small>[[login]](http://colorado.rstudio.com/rsc/connect/#/apps/1125/access/1260)</small>
+
+*Click [here](https://github.com/sol-eng/bitcoin/tree/master/sqlite) to see the code on GitHub*

@@ -22,7 +22,7 @@ dat_df <- map_dfr(dat_json, c, .id="name")
 
 ```{r}
 dat <- dat_df %>%
-  mutate(timestamp = Sys.time()) %>%
+  mutate(timestamp = as.numeric(as.POSIXct(Sys.time()))) %>%
   select(timestamp, name:symbol)
 dat
 ```

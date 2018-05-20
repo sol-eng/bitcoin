@@ -12,7 +12,7 @@ Create an ETL script to pull data from the web an store it in a SQLite database.
 
 After you have stored several snapshots of Bitcoin exchange rates into your database, you can build content on top of it. For example, you can build a Shiny application, an R Markdown document, and Plumber API.
 
-### 3. Publishing and Share (RStudio Connect)
+### 3. Publish and Share (RStudio Connect)
 
 Finally, you can publish your work to RStudio Connect. You can use RStudio Connect to control access, distribute content, and automate your work. Here is an example app, report, and API published to RStudio Connect along with the automated ETL script:
 

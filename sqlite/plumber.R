@@ -13,8 +13,8 @@ library(DT)
 con <- dbConnect(RSQLite::SQLite(), "~/bitcoin.sqlite")
 bitcoin <- tbl(con, "bitcoin")
 
-start <- as.numeric(as.POSIXct(Sys.Date() - 3, origin="1970-01-01"))
-end <- as.numeric(as.POSIXct(Sys.Date() + 1, origin="1970-01-01"))
+start <- as.numeric(as.POSIXct(as.character(Sys.Date() - 3)))
+end <- as.numeric(as.POSIXct(as.character(Sys.Date() + 1)))
 
 currency <- function(code="USD"){
   bitcoin %>%

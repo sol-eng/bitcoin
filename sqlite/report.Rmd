@@ -39,8 +39,8 @@ bitcoin <- tbl(con, "bitcoin")
 
 # Tidy
 if(params$start > params$end) stop("Start must occur before end")
-start <- as.numeric(as.POSIXct(params$start, origin="1970-01-01"))
-end <- as.numeric(as.POSIXct(params$end + 1, origin="1970-01-01"))
+start <- as.numeric(as.POSIXct(as.character(params$start)))
+end <- as.numeric(as.POSIXct(as.character(params$end + 1)))
 dat <- bitcoin %>%
   filter(name == params$code) %>%
   filter(timestamp > start & timestamp <= end) %>%

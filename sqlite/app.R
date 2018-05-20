@@ -38,8 +38,8 @@ server <- function(input, output) {
   
   dat <- reactive({
     validate(need(input$dates[1] < input$dates[2], "Start must occur before end"))
-    start <- as.numeric(as.POSIXct(input$dates[1], origin="1970-01-01"))
-    end <- as.numeric(as.POSIXct(input$dates[2] + 1, origin="1970-01-01"))
+    start <- as.numeric(as.POSIXct(as.character(params$start)))
+    end <- as.numeric(as.POSIXct(as.character(params$end + 1)))
     bitcoin %>%
       filter(name == input$code) %>%
       filter(timestamp > start & timestamp <= end) %>%

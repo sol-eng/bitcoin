@@ -57,4 +57,4 @@ function(code="USD"){
   print(p)
 }
 
-# rsconnect::deployAPI("sqlite/", account = "nathan", server = "colorado.rstudio.com", appName = "bitcoin-api-sqlite")
+# rsconnect::deployAPI(".", account = "nathan", server = "colorado.rstudio.com", appName = "bitcoin-api-sqlite")

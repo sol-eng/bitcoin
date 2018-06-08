@@ -34,6 +34,8 @@ library(dplyr)
 library(dbplyr)
 library(openxlsx)
 
+current_time <- Sys.time()
+
 # Connect
 con <- dbConnect(odbc::odbc(), "Postgres (DSN)")
 bitcoin <- tbl(con, "bitcoin")
@@ -61,20 +63,66 @@ dygraph(tseries, main = lab) %>%
   dyRangeSelector(fillColor = "lightsteelblue", strokeColor = "white")
 ```  
 
+```{r build-model, echo=FALSE}
+bitcoin_model <- glm(last ~ timestamp, dat, family = gaussian())
+
+predicted_current <- predict(bitcoin_model, newdata = tibble(timestamp = current_time))[[1]]
+predicted_tomorrow <- predict(bitcoin_model, newdata = tibble(timestamp = current_time + lubridate::days(1)))
+
+predicted_diff <- predicted_tomorrow - predicted_current
+
+currency <- dat$symbol[1]
+
+if (predicted_diff > 0) {
+  recommend <- "BUY"
+  reason <- "THE HYPE"
+  change_txt <- paste0("GAIN ", currency, " ", format(round(abs(predicted_diff), 2), nsmall = 2))
+} else {
+  # but really... who sells?
+  recommend <- "SELL"
+  reason <- "IT IS WORTHLESS"
+  change_txt <- paste0("LOSE ", currency, " ", format(round(abs(predicted_diff),2), nsmall=2))
+}
+
+```
+
+
 ```{r build-xlsx, echo=FALSE}
 wb <- loadWorkbook("./report-template.xlsx")
 writeData(wb, "data", dat)
 
 report_name <- paste0("bitcoin-report"
-                      , format(Sys.time(), format="%Y%m%d-%H%M%S")
+                      , format(current_time, format="%Y%m%d-%H%M%S")
                       ,".xlsx")
 saveWorkbook(wb, report_name)
 rmarkdown::output_metadata$set("rsc_output_files" = list(report_name))
 list_of_attachments <- list(report_name)
 rmarkdown::output_metadata$set("rsc_email_attachments" = list_of_attachments)
-rmarkdown::output_metadata$set("rsc_email_subject" = paste0("BUY Bitcoin!!  Attached is why: ",report_name))
 
 ```
+
+```{r build-email, echo=FALSE}
+
+# set subject
+rmarkdown::output_metadata$set("rsc_email_subject" = paste0(recommend, " Bitcoin!!  See attached: ",report_name))
+
+# set plaintext email body
+rmarkdown::output_metadata$set("rsc_email_body_text" = paste0(
+"Hello,
+
+This message is to inform you that you should ", recommend, " bitcoin.  
+Why, you ask?  That's simple.
+
+Because ", reason, "!!
+
+Really.  By tomorrow, I predict you will ", change_txt, ".")
+)
+
+# build rich output 
+
+``` 
+
+I have to be honest.  I recommend that you **`r recommend`** bitcoin!  Why?  Because **`r reason`**!  For instance, by tomorrow, I predict you will `r change_txt`.
 
 [Link to Excel Report](`r report_name`)
 ***

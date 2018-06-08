@@ -166,7 +166,7 @@ Requires: stringr
 Package: ggplot2
 Source: CRAN
 Version: 2.2.1
-Requires: digest, gtable, plyr, scales, reshape2
+Requires: digest, gtable, lazyeval, plyr, scales, reshape2, tibble
 
 Package: glue
 Source: CRAN
@@ -386,7 +386,8 @@ Requires: backports
 Package: scales
 Source: CRAN
 Version: 0.5.0
-Requires: RColorBrewer, Rcpp, dichromat, labeling, plyr, munsell
+Requires: R6, RColorBrewer, Rcpp, dichromat, labeling, viridisLite,
+    plyr, munsell
 
 Package: shiny
 Source: CRAN

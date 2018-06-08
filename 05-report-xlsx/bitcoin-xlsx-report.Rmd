@@ -54,7 +54,7 @@ tseries <- xts(dat$last, dat$timestamp)
 lab <- paste0("Bitcoin (", dat$symbol[1], ")")
 
 # Visualize
-dygraph(tseries, main = lab) %>%
+bitcoin_dygraph <- dygraph(tseries, main = lab) %>%
   dyOptions(axisLineWidth = 1.5, 
             fillGraph = TRUE, 
             drawGrid = FALSE, 
@@ -62,6 +62,8 @@ dygraph(tseries, main = lab) %>%
             axisLineColor = "darkgrey", 
             axisLabelFontSize = 15) %>%
   dyRangeSelector(fillColor = "lightsteelblue", strokeColor = "white")
+
+bitcoin_dygraph
 ```  
 
 ```{r build-model, echo=FALSE}

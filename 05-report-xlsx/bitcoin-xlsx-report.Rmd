@@ -140,3 +140,4 @@ I have to be honest.  I recommend that you **`r recommend`** bitcoin!  Why?  Bec
 
 *See [blockchain.info](https://blockchain.info/api/exchange_rates_api) for data source. CSS is borrowed from [here](http://markdowncss.github.io/modest/). For more information on R Markdown see [rmarkdown.com](http://rmarkdown.rstudio.com/).*
 
+

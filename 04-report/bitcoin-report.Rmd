@@ -4,7 +4,7 @@ output:
   html_document:
     theme: null
     highlight: null
-    css: modest.css
+    css: air.css
 params:
   code:
     label: "Code:"
@@ -56,10 +56,7 @@ dygraph(tseries, main = lab) %>%
             drawGrid = FALSE, 
             colors = "steelblue", 
             axisLineColor = "darkgrey", 
-            axisLabelFontSize = 15) %>%
-  dyRangeSelector(fillColor = "lightsteelblue", strokeColor = "white")
+            axisLabelFontSize = 15)
 ```  
-
-***
 
 *Report as of: `r as.character(max(dat$timestamp))`. See [blockchain.info](https://blockchain.info/api/exchange_rates_api) for data source. CSS is borrowed from [here](http://markdowncss.github.io/modest/). For more information on R Markdown see [rmarkdown.com](http://rmarkdown.rstudio.com/).*

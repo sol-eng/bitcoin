@@ -3,6 +3,8 @@ title: "Bitcoin ETL"
 output: html_notebook
 ---
 
+This notebook downloads data from [blockchain.inof](https://blockchain.info/ticker) and inserts it into a database.
+
 ```{r setup, message=FALSE}
 library(jsonlite)
 library(purrr)

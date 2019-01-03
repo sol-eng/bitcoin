@@ -39,6 +39,3 @@ dbWriteTable(con, "bitcoin", dat, append = TRUE)
 
 
 
-
-
-

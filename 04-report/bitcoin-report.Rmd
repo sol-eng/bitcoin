@@ -1,27 +1,46 @@
 ---
 title: "Bitcoin Exchange Rates"
-output: 
-  html_document:
-    theme: null
-    highlight: null
-    css: air.css
 params:
   code:
-    label: "Code:"
-    value: USD
+    choices:
+    - USD
+    - JPY
+    - CNY
+    - SGD
+    - HKD
+    - CAD
+    - NZD
+    - AUD
+    - CLP
+    - GBP
+    - DKK
+    - SEK
+    - ISK
+    - CHF
+    - BRL
+    - EUR
+    - RUB
+    - PLN
+    - THB
+    - KRW
+    - TWD
     input: select
-    choices: [USD, JPY, CNY, SGD, HKD, CAD, NZD, 
-              AUD, CLP, GBP, DKK, SEK, ISK, CHF, 
-              BRL, EUR, RUB, PLN, THB, KRW, TWD]
-  start:
-    label: "Start:"
-    value: !r Sys.Date() - 3
-    input: date
+    label: 'Code:'
+    value: USD
   end:
-    label: "End:"
-    value: !r Sys.Date()
     input: date
-
+    label: 'End:'
+    value: !r Sys.Date()
+  start:
+    input: date
+    label: 'Start:'
+    value: !r Sys.Date() - 3
+output:
+  html_document:
+    css: air.css
+    highlight: null
+    theme: null
+  pdf_document: default
 ---
 
 Bitcoin is a cryptocurrency and worldwide payment system. It is the first decentralized digital currency, as the system works without a central bank or single administrator. The network is peer-to-peer and transactions take place between users directly, without an intermediary. These transactions are verified by network nodes through the use of cryptography and recorded in a public distributed ledger called a blockchain.
